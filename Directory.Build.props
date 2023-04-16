@@ -1,0 +1,10 @@
+<Project >
+  <PropertyGroup>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>11.0</LangVersion>
+    <Version>1.0.0-beta1</Version>
+    <Authors>tom-englert</Authors>
+    <Company>tom-englert.de</Company>
+  </PropertyGroup>
+</Project>

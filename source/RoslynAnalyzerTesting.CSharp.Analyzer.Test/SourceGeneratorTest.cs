@@ -6,14 +6,14 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
-using Microsoft.CodeAnalysis.CSharp.Testing;
 using Microsoft.CodeAnalysis.Testing;
 using Microsoft.CodeAnalysis.Testing.Verifiers;
+using RoslynAnalyzerTesting.CSharp.Extensions;
 
 namespace RoslynAnalyzerTesting.CSharp.Analyzer.Test;
 
-public class SourceGeneratorTest<TSourceGenerator> : CSharpSourceGeneratorTest<TSourceGenerator, MSTestVerifier>
-    where TSourceGenerator : ISourceGenerator, new()
+public class SourceGeneratorTest<TSourceGenerator> : CSharpIncrementalSourceGeneratorTest<TSourceGenerator, MSTestVerifier>
+    where TSourceGenerator : IIncrementalGenerator, new()
 {
     private string? _generatedSources;
 

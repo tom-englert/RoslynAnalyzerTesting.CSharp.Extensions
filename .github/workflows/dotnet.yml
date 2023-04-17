@@ -21,11 +21,8 @@ jobs:
       with:
         dotnet-version: 6.0.x
     - name: Restore dependencies
-      run: dotnet restore
-      working-directory: 'sources'
+      run: dotnet restore source/RoslynAnalyzerTesting.sln --configuration Release
     - name: Build
-      run: dotnet build --no-restore
-      working-directory: 'sources'
+      run: dotnet build source/RoslynAnalyzerTesting.sln --no-restore --configuration Release
     - name: Test
-      run: dotnet test --no-build --verbosity normal
-      working-directory: 'sources'
+      run: dotnet test source/RoslynAnalyzerTesting.sln --no-build --verbosity normal --configuration Release

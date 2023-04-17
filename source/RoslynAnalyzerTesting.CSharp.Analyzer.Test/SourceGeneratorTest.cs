@@ -10,6 +10,8 @@ using Microsoft.CodeAnalysis.CSharp.Testing;
 using Microsoft.CodeAnalysis.Testing;
 using Microsoft.CodeAnalysis.Testing.Verifiers;
 
+namespace RoslynAnalyzerTesting.CSharp.Analyzer.Test;
+
 public class SourceGeneratorTest<TSourceGenerator> : CSharpSourceGeneratorTest<TSourceGenerator, MSTestVerifier>
     where TSourceGenerator : ISourceGenerator, new()
 {

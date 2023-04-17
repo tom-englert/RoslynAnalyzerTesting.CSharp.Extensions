@@ -70,10 +70,7 @@ internal static class CSharpAnalyzerFluentExtensions
     public static TTest WithReferenceAssemblies<TTest>(this TTest test, ReferenceAssemblies referenceAssemblies)
         where TTest : AnalyzerTest<Verifier>
     {
-        if (test.ReferenceAssemblies.Packages.Any())
-            throw new InvalidOperationException("You must call add packages after specifying reference assemblies");
-
-        test.ReferenceAssemblies = referenceAssemblies;
+        test.ReferenceAssemblies = referenceAssemblies.AddPackages(test.ReferenceAssemblies.Packages);
         return test;
     }
 

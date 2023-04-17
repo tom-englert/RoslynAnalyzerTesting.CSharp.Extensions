@@ -6,7 +6,7 @@ using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.Testing;
 
-namespace RoslynAnalyzerTestingExtensions.CSharp;
+namespace RoslynAnalyzerTesting.CSharp.Analyzer.Test;
 
 using Verifier = global::Microsoft.CodeAnalysis.Testing.Verifiers.MSTestVerifier;
 
@@ -69,10 +69,7 @@ public static class CSharpAnalyzerFluentExtensionMethods
     public static TTest WithReferenceAssemblies<TTest>(this TTest test, ReferenceAssemblies referenceAssemblies)
         where TTest : AnalyzerTest<Verifier>
     {
-        if (test.ReferenceAssemblies.Packages.Any())
-            throw new InvalidOperationException("You must call add packages after specifying reference assemblies");
-
-        test.ReferenceAssemblies = referenceAssemblies;
+        test.ReferenceAssemblies = referenceAssemblies.AddPackages(test.ReferenceAssemblies.Packages);
         return test;
     }
 

@@ -2,7 +2,7 @@
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 
-namespace ExtensionMethodsCodeGenerator;
+namespace RoslynAnalyzerTesting.CSharp.Analyzer;
 
 [Generator(LanguageNames.CSharp)]
 public class SourceGenerator : IIncrementalGenerator
@@ -27,7 +27,7 @@ public class SourceGenerator : IIncrementalGenerator
             return GeneratedSourceTemplate.NoVerifierFound;
 
         if (verifierTypes.Contains(';'))
-            return GeneratedSourceTemplate.MultipleVerifierFound;
+            return GeneratedSourceTemplate.MultipleVerifiersFound;
 
         return GeneratedSourceTemplate.Text;
     }

@@ -1,7 +1,11 @@
 using Microsoft.CodeAnalysis;
 
-namespace RoslynAnalyzerTestingExtensions.CSharp;
+namespace RoslynAnalyzerTesting.CSharp.Extensions;
 
+/// <summary>
+/// Adapter to test an IIncrementalGenerator with the CSharpSourceGeneratorTest
+/// </summary>
+/// <typeparam name="TIncrementalGenerator">The incremental generator to test</typeparam>
 public class SourceGeneratorAdapter<TIncrementalGenerator> : ISourceGenerator, IIncrementalGenerator
     where TIncrementalGenerator : IIncrementalGenerator, new()
 {

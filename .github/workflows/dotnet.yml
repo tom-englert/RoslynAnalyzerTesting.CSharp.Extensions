@@ -26,3 +26,8 @@ jobs:
       run: dotnet build source/RoslynAnalyzerTesting.sln --no-restore --configuration Release
     - name: Test
       run: dotnet test source/RoslynAnalyzerTesting.sln --no-build --verbosity normal --configuration Release
+    - name: Upload NuGet
+      uses: actions/upload-artifact@v2
+      with:
+        name: NuGet
+        path: '**/*.nupkg'

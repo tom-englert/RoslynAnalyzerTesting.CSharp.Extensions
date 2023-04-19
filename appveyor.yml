@@ -1,5 +1,5 @@
 image: Visual Studio 2022
 build_script:
-- cmd: dotnet build source/RoslynAnalyzerTesting.sln --configuration Release
+- cmd: dotnet build source/AnalyzerTesting.sln --configuration Release
 artifacts:
 - path: '**\*.nupkg'

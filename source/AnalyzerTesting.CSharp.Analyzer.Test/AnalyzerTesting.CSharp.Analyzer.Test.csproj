@@ -16,8 +16,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\RoslynAnalyzerTesting.CSharp.Analyzer\RoslynAnalyzerTesting.CSharp.Analyzer.csproj" />
-    <ProjectReference Include="..\RoslynAnalyzerTesting.CSharp.Extensions\RoslynAnalyzerTesting.CSharp.Extensions.csproj" />
+    <ProjectReference Include="..\AnalyzerTesting.CSharp.Analyzer\AnalyzerTesting.CSharp.Analyzer.csproj" />
+    <ProjectReference Include="..\AnalyzerTesting.CSharp.Extensions\AnalyzerTesting.CSharp.Extensions.csproj" />
   </ItemGroup>
 
 </Project>

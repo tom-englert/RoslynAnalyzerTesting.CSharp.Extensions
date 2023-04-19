@@ -3,7 +3,7 @@ using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.Testing;
 
-namespace RoslynAnalyzerTesting.CSharp.Extensions;
+namespace AnalyzerTesting.CSharp.Extensions;
 
 public static class ExtensionMethods
 {

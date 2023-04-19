@@ -2,7 +2,7 @@
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 
-namespace RoslynAnalyzerTesting.CSharp.Extensions;
+namespace AnalyzerTesting.CSharp.Extensions;
 
 public static class Transforms
 {

@@ -2,7 +2,7 @@
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 
-namespace RoslynAnalyzerTesting.CSharp.Analyzer;
+namespace AnalyzerTesting.CSharp.Analyzer;
 
 [Generator(LanguageNames.CSharp)]
 public class SourceGenerator : IIncrementalGenerator
@@ -18,7 +18,7 @@ public class SourceGenerator : IIncrementalGenerator
     {
         var template = GetTemplate(verifierTypes);
 
-        context.AddSource("RoslynAnalyzerTesting.CSharp.FluentExtensions.g.cs", template.Replace("%VERIFIER%", verifierTypes));
+        context.AddSource("AnalyzerTesting.CSharp.FluentExtensions.g.cs", template.Replace("%VERIFIER%", verifierTypes));
     }
 
     private static string GetTemplate(string verifierTypes)

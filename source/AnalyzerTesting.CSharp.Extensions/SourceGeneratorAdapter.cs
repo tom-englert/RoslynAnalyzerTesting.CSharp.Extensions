@@ -1,6 +1,6 @@
 using Microsoft.CodeAnalysis;
 
-namespace RoslynAnalyzerTesting.CSharp.Extensions;
+namespace AnalyzerTesting.CSharp.Extensions;
 
 /// <summary>
 /// Adapter to test an IIncrementalGenerator with the CSharpSourceGeneratorTest

@@ -1,10 +1,10 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.CodeAnalysis.Testing;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using RoslynAnalyzerTesting.CSharp.Extensions;
+using AnalyzerTesting.CSharp.Extensions;
 using VerifyMSTest;
 
-namespace RoslynAnalyzerTesting.CSharp.Analyzer.Test;
+namespace AnalyzerTesting.CSharp.Analyzer.Test;
 
 using GeneratorTest = SourceGeneratorTest<SourceGeneratorAdapter<SourceGenerator>>;
 

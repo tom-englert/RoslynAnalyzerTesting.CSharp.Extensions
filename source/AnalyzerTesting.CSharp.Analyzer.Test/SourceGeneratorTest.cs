@@ -8,9 +8,9 @@ using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.Testing;
 using Microsoft.CodeAnalysis.Testing.Verifiers;
-using RoslynAnalyzerTesting.CSharp.Extensions;
+using AnalyzerTesting.CSharp.Extensions;
 
-namespace RoslynAnalyzerTesting.CSharp.Analyzer.Test;
+namespace AnalyzerTesting.CSharp.Analyzer.Test;
 
 public class SourceGeneratorTest<TSourceGenerator> : CSharpIncrementalSourceGeneratorTest<TSourceGenerator, MSTestVerifier>
     where TSourceGenerator : IIncrementalGenerator, new()

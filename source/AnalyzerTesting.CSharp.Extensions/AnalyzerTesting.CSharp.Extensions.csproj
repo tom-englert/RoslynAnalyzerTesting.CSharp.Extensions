@@ -23,8 +23,8 @@
   <ItemGroup>
     <None Include="..\..\LICENSE" Pack="true" PackagePath="/" />
     <None Update="$(MSBuildProjectName).props" Pack="true" PackagePath="build" />
-    <ProjectReference Include="..\RoslynAnalyzerTesting.CSharp.Analyzer/RoslynAnalyzerTesting.CSharp.Analyzer.csproj" ReferenceOutputAssembly="false" />
-    <None Include="..\RoslynAnalyzerTesting.CSharp.Analyzer\bin\$(Configuration)\netstandard2.0\RoslynAnalyzerTesting.CSharp.Analyzer.dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
+    <ProjectReference Include="..\AnalyzerTesting.CSharp.Analyzer/AnalyzerTesting.CSharp.Analyzer.csproj" ReferenceOutputAssembly="false" />
+    <None Include="..\AnalyzerTesting.CSharp.Analyzer\bin\$(Configuration)\netstandard2.0\AnalyzerTesting.CSharp.Analyzer.dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
   </ItemGroup>
 
 </Project>

@@ -1,4 +1,4 @@
-﻿namespace RoslynAnalyzerTesting.CSharp.Analyzer;
+﻿namespace AnalyzerTesting.CSharp.Analyzer;
 
 internal class GeneratedSourceTemplate
 {

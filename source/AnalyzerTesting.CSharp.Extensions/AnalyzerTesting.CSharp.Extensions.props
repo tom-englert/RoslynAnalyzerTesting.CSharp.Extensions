@@ -1,5 +1,5 @@
 ﻿<Project>
   <ItemGroup Condition="$(Language) == 'C#' and ($(ImplicitUsings) == 'enable' or $(ImplicitUsings) == 'true')">
-    <Using Include="RoslynAnalyzerTesting.CSharp.Extensions.Transforms" Static="True" />
+    <Using Include="AnalyzerTesting.CSharp.Extensions.Transforms" Static="True" />
   </ItemGroup>
 </Project>

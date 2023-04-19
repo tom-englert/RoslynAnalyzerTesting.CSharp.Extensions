@@ -1,6 +1,6 @@
 ﻿using Microsoft.CodeAnalysis;
 
-namespace RoslynAnalyzerTesting.CSharp.Analyzer;
+namespace AnalyzerTesting.CSharp.Analyzer;
 
 internal static class ExtensionMethods
 {

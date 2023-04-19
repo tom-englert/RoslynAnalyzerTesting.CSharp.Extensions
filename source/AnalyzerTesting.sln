@@ -9,11 +9,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		..\Directory.Build.props = ..\Directory.Build.props
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RoslynAnalyzerTesting.CSharp.Extensions", "RoslynAnalyzerTesting.CSharp.Extensions\RoslynAnalyzerTesting.CSharp.Extensions.csproj", "{3007269F-FF97-44CA-9B1B-E41C55728026}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnalyzerTesting.CSharp.Extensions", "AnalyzerTesting.CSharp.Extensions\AnalyzerTesting.CSharp.Extensions.csproj", "{3007269F-FF97-44CA-9B1B-E41C55728026}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RoslynAnalyzerTesting.CSharp.Analyzer", "RoslynAnalyzerTesting.CSharp.Analyzer\RoslynAnalyzerTesting.CSharp.Analyzer.csproj", "{DAE6D3B1-F7BD-4BE4-8CDF-03542D7C35B5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnalyzerTesting.CSharp.Analyzer", "AnalyzerTesting.CSharp.Analyzer\AnalyzerTesting.CSharp.Analyzer.csproj", "{DAE6D3B1-F7BD-4BE4-8CDF-03542D7C35B5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RoslynAnalyzerTesting.CSharp.Analyzer.Test", "RoslynAnalyzerTesting.CSharp.Analyzer.Test\RoslynAnalyzerTesting.CSharp.Analyzer.Test.csproj", "{43B38195-9358-4EC7-9317-61F15135F46E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnalyzerTesting.CSharp.Analyzer.Test", "AnalyzerTesting.CSharp.Analyzer.Test\AnalyzerTesting.CSharp.Analyzer.Test.csproj", "{43B38195-9358-4EC7-9317-61F15135F46E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

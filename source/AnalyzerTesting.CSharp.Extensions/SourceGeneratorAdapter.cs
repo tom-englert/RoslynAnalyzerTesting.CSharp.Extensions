@@ -12,21 +12,27 @@ public class SourceGeneratorAdapter<TIncrementalGenerator> : ISourceGenerator, I
     private readonly TIncrementalGenerator _incrementalGenerator = new();
     private readonly ISourceGenerator _sourceGenerator;
 
+    /// <summary>
+    /// Creates a new <see cref="SourceGeneratorAdapter{TIncrementalGenerator}"/>
+    /// </summary>
     public SourceGeneratorAdapter()
     {
         _sourceGenerator = _incrementalGenerator.AsSourceGenerator();
     }
 
+    /// <inheritdoc />>
     public void Initialize(IncrementalGeneratorInitializationContext context)
     {
         _incrementalGenerator.Initialize(context);
     }
 
+    /// <inheritdoc />>
     public void Initialize(GeneratorInitializationContext context)
     {
         _sourceGenerator.Initialize(context);
     }
 
+    /// <inheritdoc />>
     public void Execute(GeneratorExecutionContext context)
     {
         _sourceGenerator.Execute(context);

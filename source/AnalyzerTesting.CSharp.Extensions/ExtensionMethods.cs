@@ -5,6 +5,9 @@ using Microsoft.CodeAnalysis.Testing;
 
 namespace AnalyzerTesting.CSharp.Extensions;
 
+/// <summary>
+/// Extension methods to simplify writing of analyzer tests.
+/// </summary>
 public static class ExtensionMethods
 {
     /// <summary>

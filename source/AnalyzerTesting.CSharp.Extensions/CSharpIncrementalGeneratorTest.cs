@@ -9,7 +9,7 @@ namespace AnalyzerTesting.CSharp.Extensions;
 /// </summary>
 /// <typeparam name="TSourceGenerator"></typeparam>
 /// <typeparam name="TVerifier"></typeparam>
-public class CSharpIncrementalSourceGeneratorTest<TSourceGenerator, TVerifier> 
+public class CSharpIncrementalGeneratorTest<TSourceGenerator, TVerifier> 
     : CSharpSourceGeneratorTest<SourceGeneratorAdapter<TSourceGenerator>, TVerifier>
     where TSourceGenerator : IIncrementalGenerator, new()
     where TVerifier : IVerifier, new()

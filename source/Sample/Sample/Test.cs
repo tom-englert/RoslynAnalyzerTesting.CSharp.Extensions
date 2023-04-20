@@ -80,7 +80,7 @@ public class Test
     [TestMethod]
     public async Task CodeGeneratorSnapshotTest()
     {
-        var test = new CSharpSourceGeneratorSnapshotTest<SampleGenerator, MSTestVerifier>()
+        var test = new CSharpIncrementalGeneratorSnapshotTest<SampleGenerator, MSTestVerifier>()
             .AddSources(Source)
             .AddReferences(typeof(Abstractions.SampleAttribute).Assembly)
             .AddPackages(SampleNugetPackage)

@@ -1,18 +1,29 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.CodeAnalysis.Testing;
+using Microsoft.CodeAnalysis.Testing.Verifiers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using AnalyzerTesting.CSharp.Extensions;
 using VerifyMSTest;
 
 namespace AnalyzerTesting.CSharp.Analyzer.Test;
 
-using GeneratorTest = SourceGeneratorTest<SourceGeneratorAdapter<SourceGenerator>>;
+using GeneratorTest = CSharpIncrementalGeneratorSnapshotTest<SourceGenerator, MSTestVerifier>;
 
 [TestClass]
 public class ExtensionMethodsCodeGeneratorUnitTest : VerifyBase
 {
     private static readonly PackageIdentity MsTestPackage = new PackageIdentity("Microsoft.CodeAnalysis.CSharp.Analyzer.Testing.MSTest", "1.1.1");
     private static readonly PackageIdentity XUnitPackage = new PackageIdentity("Microsoft.CodeAnalysis.CSharp.Analyzer.Testing.XUnit", "1.1.1");
+
+    private static GeneratorTest BuildTest(params string[] sources)
+    {
+        return new GeneratorTest()
+            .AddSources(sources)
+            .WithReferenceAssemblies(ReferenceAssemblies.NetStandard.NetStandard20)
+            .AddPackages(
+                new PackageIdentity("Microsoft.CodeAnalysis.CSharp", "4.3.0"),
+                new PackageIdentity("Microsoft.CodeAnalysis.CSharp.Workspaces", "4.3.0")
+            );
+    }
 
     const string AnalyzerSource = """
             using System.Collections.Immutable;
@@ -33,7 +44,7 @@ public class ExtensionMethodsCodeGeneratorUnitTest : VerifyBase
     {
         const string source = "";
 
-        var generated = await new GeneratorTest(source)
+        var generated = await BuildTest(source)
             .AddPackages(MsTestPackage)
             .RunAsync();
 
@@ -43,7 +54,7 @@ public class ExtensionMethodsCodeGeneratorUnitTest : VerifyBase
     [TestMethod]
     public async Task TestWithOnlyAnalyzerSourceDoesNotGenerateAnything()
     {
-        var generated = await new GeneratorTest(AnalyzerSource)
+        var generated = await BuildTest(AnalyzerSource)
             .AddPackages(MsTestPackage)
             .RunAsync();
 
@@ -77,7 +88,7 @@ public class ExtensionMethodsCodeGeneratorUnitTest : VerifyBase
         }
         """;
 
-        var generated = await new GeneratorTest(AnalyzerSource, testSource)
+        var generated = await BuildTest(AnalyzerSource, testSource)
             .AddPackages(MsTestPackage)
             .RunAsync();
 
@@ -106,7 +117,7 @@ public class ExtensionMethodsCodeGeneratorUnitTest : VerifyBase
         }
         """;
 
-        var generated = await new GeneratorTest(AnalyzerSource, testSource)
+        var generated = await BuildTest(AnalyzerSource, testSource)
             .AddPackages(XUnitPackage)
             .RunAsync();
 

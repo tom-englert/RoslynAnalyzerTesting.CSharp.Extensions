@@ -9,16 +9,16 @@ using Microsoft.CodeAnalysis.Testing;
 /// <typeparam name="TSourceGenerator">The source generator to test.</typeparam>
 /// <typeparam name="TVerifier">The verifier of the <see cref="AnalyzerTest{TVerifier}"/></typeparam>
 public class
-    CSharpSourceGeneratorSnapshotTest<TSourceGenerator, TVerifier> : CSharpIncrementalSourceGeneratorTest<TSourceGenerator, TVerifier>
+    CSharpIncrementalGeneratorSnapshotTest<TSourceGenerator, TVerifier> : CSharpIncrementalGeneratorTest<TSourceGenerator, TVerifier>
     where TSourceGenerator : IIncrementalGenerator, new()
     where TVerifier : IVerifier, new()
 {
     private string? _generatedSources;
 
     /// <summary>
-    /// Creates an instance of the <see cref="CSharpSourceGeneratorSnapshotTest{TSourceGenerator,TVerifier}"/>
+    /// Creates an instance of the <see cref="CSharpIncrementalGeneratorSnapshotTest{TSourceGenerator,TVerifier}"/>
     /// </summary>
-    public CSharpSourceGeneratorSnapshotTest()
+    public CSharpIncrementalGeneratorSnapshotTest()
     {
         TestBehaviors = TestBehaviors.SkipGeneratedCodeCheck | TestBehaviors.SkipSuppressionCheck | TestBehaviors.SkipGeneratedSourcesCheck;
     }

@@ -42,7 +42,7 @@ public static class Transforms
     /// </summary>
     /// <param name="languageVersion"></param>
     /// <returns>The transform</returns>
-    public static Func<Solution, ProjectId, Solution> UseLanguageVersion(LanguageVersion languageVersion) => CreateSolutionTransform((solution, project) =>
+    public static Func<Solution, ProjectId, Solution> WithLanguageVersion(LanguageVersion languageVersion) => CreateSolutionTransform((solution, project) =>
     {
         var parseOptions = project.ParseOptions as CSharpParseOptions ?? throw new InvalidOperationException("Project does not have CSharpParseOptions");
 

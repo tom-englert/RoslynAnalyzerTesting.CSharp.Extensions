@@ -62,6 +62,20 @@ internal static class CSharpAnalyzerFluentExtensions
     }
 
     /// <summary>
+    /// Adds the diagnostics to the list of expected fixed diagnostics
+    /// </summary>
+    /// <typeparam name="TTest">The test type</typeparam>
+    /// <param name="test">The test</param>
+    /// <param name="expected">The diagnostics</param>
+    /// <returns>The test</returns>
+    public static TTest AddExpectedFixedDiagnostics<TTest>(this TTest test, params DiagnosticResult[] expected)
+        where TTest : CodeFixTest<Verifier>
+    {
+        test.FixedState.ExpectedDiagnostics.AddRange(expected);
+        return test;
+    }
+
+    /// <summary>
     /// Adds a solution transform to the test compilation
     /// </summary>
     /// <typeparam name="TTest">The test type</typeparam>
@@ -93,6 +107,24 @@ internal static class CSharpAnalyzerFluentExtensions
         foreach (var source in sources)
         {
             test.TestState.Sources.Add(source);
+        }
+
+        return test;
+    }
+
+    /// <summary>
+    /// Adds source files to the fixed test state
+    /// </summary>
+    /// <typeparam name="TTest">The test type</typeparam>
+    /// <param name="test">The test</param>
+    /// <param name="sources">The sources to add</param>
+    /// <returns>The test</returns>
+    public static TTest AddFixedSources<TTest>(this TTest test, params string[] sources)
+        where TTest : CodeFixTest<Verifier>
+    {
+        foreach (var source in sources)
+        {
+            test.FixedState.Sources.Add(source);
         }
 
         return test;

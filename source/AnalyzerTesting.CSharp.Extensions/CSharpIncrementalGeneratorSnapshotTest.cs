@@ -1,15 +1,14 @@
-﻿using AnalyzerTesting.CSharp.Extensions;
-using Microsoft.CodeAnalysis;
-using Microsoft.CodeAnalysis.CSharp;
+﻿using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.Testing;
+
+namespace AnalyzerTesting.CSharp.Extensions;
 
 /// <summary>
 /// A source generator test that does not internally verify the generated sources, but returns them as a string so you can use it with snapshot testing.
 /// </summary>
 /// <typeparam name="TSourceGenerator">The source generator to test.</typeparam>
 /// <typeparam name="TVerifier">The verifier of the <see cref="AnalyzerTest{TVerifier}"/></typeparam>
-public class
-    CSharpIncrementalGeneratorSnapshotTest<TSourceGenerator, TVerifier> : CSharpIncrementalGeneratorTest<TSourceGenerator, TVerifier>
+public class CSharpIncrementalGeneratorSnapshotTest<TSourceGenerator, TVerifier> : CSharpIncrementalGeneratorTest<TSourceGenerator, TVerifier>
     where TSourceGenerator : IIncrementalGenerator, new()
     where TVerifier : IVerifier, new()
 {

@@ -59,7 +59,7 @@ public class Test
             ReferenceAssemblies = ReferenceAssemblies.Net.Net60.AddPackages(SampleNugetPackage),
             ExpectedDiagnostics =
             {
-                SampleAnalyzer.SampleDiagnostic.AsResult().WithLocation(0).WithArguments("MessageArg")
+                SampleAnalyzer.SampleDiagnostic.AsResult().WithLocation(0).WithArguments("SampleClass")
             }
         };
 
@@ -76,7 +76,7 @@ public class Test
             .WithLanguageVersion(LanguageVersion.CSharp10)
             .WithProjectCompilationOptions(options => options.WithCSharpDefaults())
             .WithReferenceAssemblies(ReferenceAssemblies.Net.Net60)
-            .AddExpectedDiagnostics(SampleAnalyzer.SampleDiagnostic.AsResult().WithLocation(0).WithArguments("MessageArg"));
+            .AddExpectedDiagnostics(SampleAnalyzer.SampleDiagnostic.AsResult().WithLocation(0).WithArguments("SampleClass"));
 
         await test.RunAsync();
     }
@@ -96,8 +96,44 @@ public class Test
     public async Task WithSharedTestBuilder()
     {
         await BuildTest(Source)
-            .AddExpectedDiagnostics(SampleAnalyzer.SampleDiagnostic.AsResult().WithLocation(0).WithArguments("MessageArg"))
+            .AddExpectedDiagnostics(SampleAnalyzer.SampleDiagnostic.AsResult().WithLocation(0).WithArguments("SampleClass"))
             .RunAsync();
+    }
+
+    private class CustomTest : CSharpAnalyzerTest<SampleAnalyzer, MSTestVerifier>
+    {
+        public CustomTest(string source)
+        {
+            TestCode = source;
+            ReferenceAssemblies = ReferenceAssemblies.Net.Net60;
+            SolutionTransforms.Add(AddAssemblyReferences(typeof(Abstractions.SampleAttribute).Assembly));
+            SolutionTransforms.Add(WithProjectCompilationOptions(options => options.WithCSharpDefaults()));
+            SolutionTransforms.Add(WithLanguageVersion(LanguageVersion.CSharp10));
+        }
+    }
+
+    [TestMethod]
+    public async Task WithCustomTestClass()
+    {
+        await new CustomTest(Source)
+            .AddExpectedDiagnostics(SampleAnalyzer.SampleDiagnostic.AsResult().WithLocation(0).WithArguments("SampleClass"))
+            .RunAsync();
+    }
+
+    [TestMethod]
+    public async Task CodeFixTest()
+    {
+        var fixedSource = Source.Replace("SampleClass", "SAMPLECLASS", StringComparison.Ordinal);
+
+        var test = new CSharpCodeFixTest<SampleAnalyzer, SampleCodeFixProvider, MSTestVerifier>()
+            .AddSources(Source)
+            .AddReferences(typeof(Abstractions.SampleAttribute).Assembly)
+            .AddPackages(SampleNugetPackage)
+            .WithProjectCompilationOptions(options => options.WithCSharpDefaults())
+            .AddExpectedDiagnostics(SampleAnalyzer.SampleDiagnostic.AsResult().WithLocation(0).WithArguments("SampleClass"))
+            .AddFixedSources(fixedSource);
+
+        await test.RunAsync();
     }
 
     [TestMethod]
@@ -116,5 +152,5 @@ public class Test
     }
 }
 ```
-<sup><a href='/source/Sample/Sample/Test.cs#L1-L94' title='Snippet source file'>snippet source</a> | <a href='#snippet-Test.cs' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/source/Sample/Sample/Test.cs#L1-L130' title='Snippet source file'>snippet source</a> | <a href='#snippet-Test.cs' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->

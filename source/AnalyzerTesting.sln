@@ -5,6 +5,7 @@ VisualStudioVersion = 17.5.33414.496
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D3DCA1EE-6A13-4712-99DD-7AB24B741791}"
 	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
 		..\appveyor.yml = ..\appveyor.yml
 		..\Directory.Build.props = ..\Directory.Build.props
 		..\.github\workflows\gh-ci.yml = ..\.github\workflows\gh-ci.yml
@@ -19,9 +20,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnalyzerTesting.CSharp.Anal
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sample", "Sample", "{8C5BC0B7-4FBD-47FB-B87C-A5AA6D226BAD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample", "Sample\Sample\Sample.csproj", "{CDE891C5-3D7D-4BE7-B236-B3BBE9258178}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sample", "Sample\Sample\Sample.csproj", "{CDE891C5-3D7D-4BE7-B236-B3BBE9258178}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.Abstractions", "Sample\Sample.Abstractions\Sample.Abstractions.csproj", "{6118C079-0332-47AA-9AF5-2E95C5E249D2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sample.Abstractions", "Sample\Sample.Abstractions\Sample.Abstractions.csproj", "{6118C079-0332-47AA-9AF5-2E95C5E249D2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

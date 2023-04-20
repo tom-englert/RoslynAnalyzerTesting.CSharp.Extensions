@@ -4,15 +4,8 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageReadMeFile>README.md</PackageReadMeFile>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
-
-    <DebugType>embedded</DebugType>
-    <DebugSymbols>true</DebugSymbols>
-    <EmbedUntrackedSources>true</EmbedUntrackedSources>
-
-    <EnableNETAnalyzers>true</EnableNETAnalyzers>
-    <AnalysisMode>AllEnabledByDefault</AnalysisMode>
-
   </PropertyGroup>
 
   <ItemGroup>
@@ -22,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="README.md" Pack="true" PackagePath="/" />
     <None Include="..\..\LICENSE" Pack="true" PackagePath="/" />
     <None Update="$(MSBuildProjectName).props" Pack="true" PackagePath="build" />
     <ProjectReference Include="..\AnalyzerTesting.CSharp.Analyzer/AnalyzerTesting.CSharp.Analyzer.csproj" ReferenceOutputAssembly="false" />

@@ -6,10 +6,22 @@
     <Version>1.0.0-beta3</Version>
     <Authors>tom-englert</Authors>
     <Company>tom-englert.de</Company>
+    <Title>Roslyn analyzer testing extensions</Title>
+    <Description>Instantly start coding roslyn analyzer tests, without having to prepare a new derived class for every test flavor.</Description>
+    
+    <DebugType>embedded</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+    <AnalysisMode>AllEnabledByDefault</AnalysisMode>
   </PropertyGroup>
+
   <PropertyGroup Condition="'$(CI)' == 'true'">
     <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
   </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All" />
   </ItemGroup>

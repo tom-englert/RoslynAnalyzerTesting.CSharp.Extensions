@@ -1,9 +1,11 @@
 # Roslyn analyzer testing extensions
+[![CI](https://github.com/tom-englert/RoslynAnalyzerTesting.CSharp.Extensions/actions/workflows/gh-ci.yml/badge.svg)](https://github.com/tom-englert/RoslynAnalyzerTesting.CSharp.Extensions/actions/workflows/gh-ci.yml)
+[![NuGet Status](http://img.shields.io/nuget/v/AnalyzerTesting.CSharp.Extensions.svg?style=flat-square)](https://www.nuget.org/packages/AnalyzerTesting.CSharp.Extensions)
 
-### Instantly start coding roslyn analyzer tests, without having to prepare a new derived class for every test flavor.
+## Instantly start coding roslyn analyzer tests, without having to prepare a new derived class for every test flavor.
 
 This project provides solution transforms and extension methods to simpify testing of roslyn analyzers 
-and to find how to configure common compilation tasks like adding references or changing language version.
+and to ease configuration of the compilation like adding references or changing language version.
 
 It also provides base classes to test incremental generators and diagnostic suppressors with `"Microsoft.CodeAnalysis.CSharp.Analyzer.Testing` version `1.1.1` and `Microsoft.CodeAnalysis.CSharp.Workspaces` >= `4.3.0`
 
@@ -14,7 +16,7 @@ It also provides base classes to test incremental generators and diagnostic supp
 - An `IncrementalSourceGenerator` test that supports snapshot testing
 - A `DiagnosticSuppressor` test to test diagnostic suppressors with `Microsoft.CodeAnalysis.CSharp.Workspaces` >= `4.3.0`
 
-## Sample code demonstrating the usage
+### Sample code demonstrating the usage
 
 <!-- snippet: Test.cs -->
 <a id='snippet-Test.cs'></a>

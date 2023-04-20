@@ -82,7 +82,7 @@ public class Test
         public CustomTest(string source)
         {
             TestCode = source;
-            ReferenceAssemblies = ReferenceAssemblies.Net.Net60;
+            ReferenceAssemblies = ReferenceAssemblies.Net.Net60.AddPackages(SampleNugetPackage);
             SolutionTransforms.Add(AddAssemblyReferences(typeof(Abstractions.SampleAttribute).Assembly));
             SolutionTransforms.Add(WithProjectCompilationOptions(options => options.WithCSharpDefaults()));
             SolutionTransforms.Add(WithLanguageVersion(LanguageVersion.CSharp10));

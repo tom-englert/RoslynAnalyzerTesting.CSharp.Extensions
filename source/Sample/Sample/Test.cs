@@ -127,4 +127,16 @@ public class Test
         // Replace this with your favorite snapshot testing framework, e.g. Verify
         Assert.AreEqual("// SampleSource.g.cs\r\n// This is just a generated sample", generated);
     }
+
+    [TestMethod]
+    public async Task SuppressorTest()
+    {
+        await new CSharpDiagnosticSuppressorTest<SampleAnalyzer, SampleSuppressor, MSTestVerifier>()
+            .AddSources(Source)
+            .AddReferences(typeof(Abstractions.SampleAttribute).Assembly)
+            .AddPackages(SampleNugetPackage)
+            .WithProjectCompilationOptions(options => options.WithCSharpDefaults())
+            .AddExpectedDiagnostics(SampleAnalyzer.SampleDiagnostic.AsResult().WithLocation(0).WithArguments("SampleClass").WithIsSuppressed(true))
+            .RunAsync();
+    }
 }

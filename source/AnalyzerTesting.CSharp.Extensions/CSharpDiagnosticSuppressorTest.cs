@@ -29,7 +29,6 @@ public class CSharpDiagnosticSuppressorTest<TAnalyzer, TSuppressor, TVerifier> :
     {
         // Workaround https://github.com/dotnet/roslyn-sdk/issues/1078
         TestBehaviors |= TestBehaviors.SkipSuppressionCheck;
-        return compilation.WithAnalyzers(analyzers,
-            new CompilationWithAnalyzersOptions(options, null, true, false, true));
+        return compilation.WithAnalyzers(analyzers, new CompilationWithAnalyzersOptions(options, null, true, false, true));
     }
 }

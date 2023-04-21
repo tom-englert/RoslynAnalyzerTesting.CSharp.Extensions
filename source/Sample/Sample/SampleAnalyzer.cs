@@ -1,5 +1,4 @@
 ﻿using System.Collections.Immutable;
-using System.Data;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.Diagnostics;
 
@@ -8,7 +7,7 @@ namespace Sample;
 [DiagnosticAnalyzer(LanguageNames.CSharp)]
 public class SampleAnalyzer : DiagnosticAnalyzer
 {
-    public static readonly DiagnosticDescriptor SampleDiagnostic = new("SMPL01", "Sample", "Message {0}", "Sample", DiagnosticSeverity.Error, true);
+    public static readonly DiagnosticDescriptor SampleDiagnostic = new("SMPL01", "Sample", "Message {0}", "Sample", DiagnosticSeverity.Warning, true);
 
     public override void Initialize(AnalysisContext context)
     {

@@ -19,6 +19,8 @@ It also provides base classes to test incremental generators and diagnostic supp
 
 ### Sample code demonstrating the usage
 
+See also [Roslyn Analyzer Cookbook](https://github.com/tom-englert/RoslynAnalyzerCookbook) for more samples.
+
 <!-- snippet: Test.cs -->
 <a id='snippet-Test.cs'></a>
 ```cs

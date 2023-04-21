@@ -29,7 +29,7 @@ using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.Testing;
 
-using Verifier = %VERIFIER%;
+using Verifier_4E37C6A9_58E2_466D_B8AB_6ABF3B1D3B80 = %VERIFIER%;
 
 internal static class CSharpAnalyzerFluentExtensions
 {
@@ -41,7 +41,7 @@ internal static class CSharpAnalyzerFluentExtensions
     /// <param name="packages">The packages to reference</param>
     /// <returns>The test</returns>
     public static TTest AddPackages<TTest>(this TTest test, params PackageIdentity[] packages)
-        where TTest : AnalyzerTest<Verifier>
+        where TTest : AnalyzerTest<Verifier_4E37C6A9_58E2_466D_B8AB_6ABF3B1D3B80>
     {
         test.ReferenceAssemblies = test.ReferenceAssemblies.AddPackages(packages.ToImmutableArray());
         return test;
@@ -55,7 +55,7 @@ internal static class CSharpAnalyzerFluentExtensions
     /// <param name="expected">The diagnostics</param>
     /// <returns>The test</returns>
     public static TTest AddExpectedDiagnostics<TTest>(this TTest test, params DiagnosticResult[] expected)
-        where TTest : AnalyzerTest<Verifier>
+        where TTest : AnalyzerTest<Verifier_4E37C6A9_58E2_466D_B8AB_6ABF3B1D3B80>
     {
         test.ExpectedDiagnostics.AddRange(expected);
         return test;
@@ -69,7 +69,7 @@ internal static class CSharpAnalyzerFluentExtensions
     /// <param name="expected">The diagnostics</param>
     /// <returns>The test</returns>
     public static TTest AddExpectedFixedDiagnostics<TTest>(this TTest test, params DiagnosticResult[] expected)
-        where TTest : CodeFixTest<Verifier>
+        where TTest : CodeFixTest<Verifier_4E37C6A9_58E2_466D_B8AB_6ABF3B1D3B80>
     {
         test.FixedState.ExpectedDiagnostics.AddRange(expected);
         return test;
@@ -83,7 +83,7 @@ internal static class CSharpAnalyzerFluentExtensions
     /// <param name="transform">The transforms to add</param>
     /// <returns>The test</returns>
     public static TTest AddSolutionTransform<TTest>(this TTest test, Func<Solution, Project, Solution> transform)
-        where TTest : AnalyzerTest<Verifier>
+        where TTest : AnalyzerTest<Verifier_4E37C6A9_58E2_466D_B8AB_6ABF3B1D3B80>
     {
         test.SolutionTransforms.Add((solution, projectId) =>
         {
@@ -102,7 +102,7 @@ internal static class CSharpAnalyzerFluentExtensions
     /// <param name="sources">The sources to add</param>
     /// <returns>The test</returns>
     public static TTest AddSources<TTest>(this TTest test, params string[] sources)
-        where TTest : AnalyzerTest<Verifier>
+        where TTest : AnalyzerTest<Verifier_4E37C6A9_58E2_466D_B8AB_6ABF3B1D3B80>
     {
         foreach (var source in sources)
         {
@@ -120,7 +120,7 @@ internal static class CSharpAnalyzerFluentExtensions
     /// <param name="sources">The sources to add</param>
     /// <returns>The test</returns>
     public static TTest AddFixedSources<TTest>(this TTest test, params string[] sources)
-        where TTest : CodeFixTest<Verifier>
+        where TTest : CodeFixTest<Verifier_4E37C6A9_58E2_466D_B8AB_6ABF3B1D3B80>
     {
         foreach (var source in sources)
         {
@@ -138,7 +138,7 @@ internal static class CSharpAnalyzerFluentExtensions
     /// <param name="localReferences">The assemblies to reference</param>
     /// <returns>The test</returns>
     public static TTest AddReferences<TTest>(this TTest test, params Assembly[] localReferences)
-        where TTest : AnalyzerTest<Verifier>
+        where TTest : AnalyzerTest<Verifier_4E37C6A9_58E2_466D_B8AB_6ABF3B1D3B80>
     {
         test.SolutionTransforms.Add((solution, projectId) =>
         {
@@ -162,7 +162,7 @@ internal static class CSharpAnalyzerFluentExtensions
     /// <param name="referenceAssemblies">The reference assemblies to use</param>
     /// <returns>The test</returns>
     public static TTest WithReferenceAssemblies<TTest>(this TTest test, ReferenceAssemblies referenceAssemblies)
-        where TTest : AnalyzerTest<Verifier>
+        where TTest : AnalyzerTest<Verifier_4E37C6A9_58E2_466D_B8AB_6ABF3B1D3B80>
     {
         test.ReferenceAssemblies = referenceAssemblies.AddPackages(test.ReferenceAssemblies.Packages);
         return test;
@@ -176,7 +176,7 @@ internal static class CSharpAnalyzerFluentExtensions
     /// <param name="languageVersion">The language version to use</param>
     /// <returns>The test</returns>
     public static TTest WithLanguageVersion<TTest>(this TTest test, LanguageVersion languageVersion)
-        where TTest : AnalyzerTest<Verifier>
+        where TTest : AnalyzerTest<Verifier_4E37C6A9_58E2_466D_B8AB_6ABF3B1D3B80>
     {
         test.SolutionTransforms.Add((solution, projectId) => solution.WithProjectParseOptions(projectId, new CSharpParseOptions(languageVersion, DocumentationMode.Diagnose)));
         return test;
@@ -190,7 +190,7 @@ internal static class CSharpAnalyzerFluentExtensions
     /// <param name="callback">The callback to update the compilation options</param>
     /// <returns>The test</returns>
     public static TTest WithProjectCompilationOptions<TTest>(this TTest test, Func<CSharpCompilationOptions, CSharpCompilationOptions> callback)
-        where TTest : AnalyzerTest<Verifier>
+        where TTest : AnalyzerTest<Verifier_4E37C6A9_58E2_466D_B8AB_6ABF3B1D3B80>
     {
         test.SolutionTransforms.Add((solution, projectId) =>
         {

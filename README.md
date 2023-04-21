@@ -1,5 +1,6 @@
 # Roslyn analyzer testing extensions
 [![CI](https://github.com/tom-englert/RoslynAnalyzerTesting.CSharp.Extensions/actions/workflows/gh-ci.yml/badge.svg)](https://github.com/tom-englert/RoslynAnalyzerTesting.CSharp.Extensions/actions/workflows/gh-ci.yml)
+[![Build status](https://ci.appveyor.com/api/projects/status/lg81rrrb2hid10gc?svg=true)](https://ci.appveyor.com/project/tom-englert/roslynanalyzertesting-csharp-extensions)
 [![NuGet Status](http://img.shields.io/nuget/v/AnalyzerTesting.CSharp.Extensions.svg?style=flat-square)](https://www.nuget.org/packages/AnalyzerTesting.CSharp.Extensions)
 
 ## Instantly start coding roslyn analyzer tests, without having to prepare a new derived class for every test flavor.

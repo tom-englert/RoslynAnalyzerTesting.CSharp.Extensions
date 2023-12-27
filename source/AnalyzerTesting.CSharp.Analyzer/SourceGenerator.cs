@@ -46,7 +46,7 @@ public class SourceGenerator : IIncrementalGenerator
         return string.Join(";", verifierTypeCandidates.OrderBy(item => item));
     }
 
-    private class SyntaxWalker : CSharpSyntaxWalker
+    private sealed class SyntaxWalker : CSharpSyntaxWalker
     {
         private readonly SemanticModel _semanticModel;
         private readonly SyntaxTree _syntaxTree;

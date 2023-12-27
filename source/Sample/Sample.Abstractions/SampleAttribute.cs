@@ -1,6 +1,6 @@
 ﻿namespace Sample.Abstractions;
 
 [AttributeUsage(AttributeTargets.All)]
-public class SampleAttribute : Attribute
+public sealed class SampleAttribute : Attribute
 {
 }

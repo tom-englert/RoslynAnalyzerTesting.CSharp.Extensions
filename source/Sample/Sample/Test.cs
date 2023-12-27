@@ -77,7 +77,7 @@ public class Test
             .RunAsync();
     }
 
-    private class CustomTest : CSharpAnalyzerTest<SampleAnalyzer, MSTestVerifier>
+    private sealed class CustomTest : CSharpAnalyzerTest<SampleAnalyzer, MSTestVerifier>
     {
         public CustomTest(string source)
         {

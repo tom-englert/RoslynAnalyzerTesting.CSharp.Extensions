@@ -3,7 +3,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <LangVersion>11.0</LangVersion>
-    <Version>1.0.0</Version>
+    <Version>1.1.0</Version>
     <Authors>tom-englert</Authors>
     <Company>tom-englert.de</Company>
     <Title>Roslyn analyzer testing extensions</Title>
@@ -15,7 +15,8 @@
 
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
     <EnableNETAnalyzers>true</EnableNETAnalyzers>
-    <AnalysisMode>AllEnabledByDefault</AnalysisMode>
+    <AnalysisMode>All</AnalysisMode>
+    <AnalysisLevel>latest</AnalysisLevel>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(CI)' == 'true'">

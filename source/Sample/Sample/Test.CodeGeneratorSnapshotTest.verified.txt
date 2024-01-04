@@ -1,0 +1,2 @@
+﻿// SampleSource.g.cs
+// This is just a generated sample

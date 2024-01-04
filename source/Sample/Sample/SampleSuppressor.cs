@@ -11,10 +11,15 @@ namespace Sample
         {
             foreach (var diagnostic in context.ReportedDiagnostics)
             {
-                context.ReportSuppression(Suppression.Create(SupportedSuppressions[0], diagnostic));
+                var id = diagnostic.Id;
+                var descriptor = SupportedSuppressions.Single(s => s.SuppressedDiagnosticId == id);
+                context.ReportSuppression(Suppression.Create(descriptor, diagnostic));
             }
         }
 
-        public override ImmutableArray<SuppressionDescriptor> SupportedSuppressions { get; } = ImmutableArray.Create(new SuppressionDescriptor("SMPL002", SampleAnalyzer.SampleDiagnostic.Id, "Just suppress everything for demo"));
+        public override ImmutableArray<SuppressionDescriptor> SupportedSuppressions { get; } = ImmutableArray.Create(
+            new SuppressionDescriptor("SMPL002", SampleAnalyzer.SampleDiagnostic.Id, "Just suppress everything for demo"),
+            new SuppressionDescriptor("SMPL003", "CS8618", "Just suppress everything for demo")
+            );
     }
 }

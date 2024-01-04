@@ -15,6 +15,7 @@
     <PackageReference Include="MSTest.TestAdapter" Version="3.1.1" />
     <PackageReference Include="MSTest.TestFramework" Version="3.1.1" />
     <PackageReference Include="MarkdownSnippets.MsBuild" Version="26.0.1" PrivateAssets="All" />
+    <PackageReference Include="Verify.MSTest" Version="22.11.2" />
   </ItemGroup>
 
   <ItemGroup>

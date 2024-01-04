@@ -2,12 +2,11 @@
 using Microsoft.CodeAnalysis.CSharp.Testing;
 using Microsoft.CodeAnalysis.Testing;
 using Microsoft.CodeAnalysis.Testing.Verifiers;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Sample;
 
 [TestClass]
-public class Test
+public class Test : VerifyBase
 {
     private static readonly PackageIdentity SampleNugetPackage = new("TomsToolbox.Essentials", "2.8.7");
 
@@ -114,22 +113,32 @@ public class Test
     }
 
     [TestMethod]
-    public async Task CodeGeneratorSnapshotTest()
+    public async Task CodeGeneratorTest()
     {
-        var test = new CSharpIncrementalGeneratorSnapshotTest<SampleGenerator, MSTestVerifier>()
-            .AddSources(Source)
-            .AddReferences(typeof(Abstractions.SampleAttribute).Assembly)
-            .AddPackages(SampleNugetPackage)
-            .WithProjectCompilationOptions(options => options.WithCSharpDefaults());
+        var test = new CSharpIncrementalGeneratorTest<SampleGenerator, MSTestVerifier>()
+        {
+            GeneratedSource = ("SampleSource.g.cs", "// This is just a generated sample")
+        };
 
-        var generated = await test.RunAsync();
-
-        // Replace this with your favorite snapshot testing framework, e.g. Verify
-        Assert.AreEqual("// SampleSource.g.cs\r\n// This is just a generated sample", generated);
+        await test.RunAsync();
     }
 
     [TestMethod]
-    public async Task SuppressorTest()
+    public async Task CodeGeneratorSnapshotTest()
+    {
+        var test = new CSharpIncrementalGeneratorSnapshotTest<SampleGenerator, MSTestVerifier>
+        {
+            TestCode = "namespace Dummy { }"
+        };
+
+        var generated = await test.RunAsync();
+
+        // Replace this with your favorite snapshot testing framework, e.g. https://github.com/VerifyTests/Verify
+        await Verify(generated);
+    }
+
+    [TestMethod]
+    public async Task AnalyzerSuppressorTest()
     {
         await new CSharpDiagnosticSuppressorTest<SampleAnalyzer, SampleSuppressor, MSTestVerifier>()
             .AddSources(Source)
@@ -139,4 +148,24 @@ public class Test
             .AddExpectedDiagnostics(SampleAnalyzer.SampleDiagnostic.AsResult().WithLocation(0).WithArguments("SampleClass").WithIsSuppressed(true))
             .RunAsync();
     }
+
+    [TestMethod]
+    public async Task CompilerWarningSuppressorTest()
+    {
+        const string source = """
+                              class C
+                              {
+                                  object x;
+                                  
+                                  {|#0:C|}() {}
+                              }
+                              """;
+
+        await new CSharpDiagnosticSuppressorTest<SampleSuppressor, MSTestVerifier>()
+            .AddSources(source)
+            .WithProjectCompilationOptions(options => options.WithCSharpDefaults())
+            .AddExpectedDiagnostics(DiagnosticResult.CompilerError("CS8618").WithLocation(0).WithArguments("field", "x").WithIsSuppressed(true))
+            .RunAsync();
+    }
+
 }

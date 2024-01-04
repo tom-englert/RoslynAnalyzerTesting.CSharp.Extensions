@@ -26,7 +26,7 @@ public class CSharpIncrementalGeneratorTest<TSourceGenerator, TVerifier>
         {
             var generatedCode = SourceText.From(value.sourceCode, Encoding.UTF8);
             var generatorType = typeof(SourceGeneratorAdapter<TSourceGenerator>);
-            var generatedFile = $@"{generatorType.Namespace}\{generatorType.FullName}\{value.fileName}";
+            var generatedFile = Path.Combine(generatorType.Namespace!, generatorType.FullName!, value.fileName);
             var generatedSource = (generatedFile, generatedCode);
 
             TestState.GeneratedSources.Add(generatedSource);

@@ -1,3 +1,6 @@
+1.1.2
+- Fix CSharpIncrementalGeneratorTest path for unix
+
 1.1.1
 - Extend incremental generator test to simplify adding the generated source
 

@@ -22,8 +22,8 @@ public class ExtensionMethodsCodeGeneratorUnitTest : VerifyBase
             .WithReferenceAssemblies(ReferenceAssemblies.NetStandard.NetStandard20)
             .AddPackages(
                 new PackageIdentity("Microsoft.CodeAnalysis.CSharp.CodeFix.Testing", "1.1.1"),
-                new PackageIdentity("Microsoft.CodeAnalysis.CSharp", "4.3.0"),
-                new PackageIdentity("Microsoft.CodeAnalysis.CSharp.Workspaces", "4.3.0")
+                new PackageIdentity("Microsoft.CodeAnalysis.CSharp", "4.3.1"),
+                new PackageIdentity("Microsoft.CodeAnalysis.CSharp.Workspaces", "4.3.1")
             );
     }
 

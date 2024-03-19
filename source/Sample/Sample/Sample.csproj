@@ -10,12 +10,12 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Analyzer.Testing.MSTest" Version="1.1.1" />
-    <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="[4.3.0]" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
-    <PackageReference Include="MSTest.TestAdapter" Version="3.1.1" />
-    <PackageReference Include="MSTest.TestFramework" Version="3.1.1" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="[4.3.1]" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.9.0" />
+    <PackageReference Include="MSTest.TestAdapter" Version="3.2.2" />
+    <PackageReference Include="MSTest.TestFramework" Version="3.2.2" />
     <PackageReference Include="MarkdownSnippets.MsBuild" Version="26.0.1" PrivateAssets="All" />
-    <PackageReference Include="Verify.MSTest" Version="22.11.2" />
+    <PackageReference Include="Verify.MSTest" Version="23.5.2" />
   </ItemGroup>
 
   <ItemGroup>

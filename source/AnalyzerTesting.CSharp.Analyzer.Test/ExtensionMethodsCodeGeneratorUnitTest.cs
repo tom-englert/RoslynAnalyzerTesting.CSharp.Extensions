@@ -1,19 +1,17 @@
 ﻿using System.Threading.Tasks;
 using AnalyzerTesting.CSharp.Extensions;
 using Microsoft.CodeAnalysis.Testing;
-using Microsoft.CodeAnalysis.Testing.Verifiers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using VerifyMSTest;
 
 namespace AnalyzerTesting.CSharp.Analyzer.Test;
 
-using GeneratorTest = CSharpIncrementalGeneratorSnapshotTest<SourceGenerator, MSTestVerifier>;
+using GeneratorTest = CSharpIncrementalGeneratorSnapshotTest<SourceGenerator, DefaultVerifier>;
 
 [TestClass]
 public class ExtensionMethodsCodeGeneratorUnitTest : VerifyBase
 {
-    private static readonly PackageIdentity MsTestPackage = new("Microsoft.CodeAnalysis.CSharp.Analyzer.Testing.MSTest", "1.1.1");
-    private static readonly PackageIdentity XUnitPackage = new("Microsoft.CodeAnalysis.CSharp.Analyzer.Testing.XUnit", "1.1.1");
+    private static readonly PackageIdentity TestPackage = new("Microsoft.CodeAnalysis.CSharp.Analyzer.Testing", "1.1.2");
 
     private static GeneratorTest BuildTest(params string[] sources)
     {
@@ -21,7 +19,7 @@ public class ExtensionMethodsCodeGeneratorUnitTest : VerifyBase
             .AddSources(sources)
             .WithReferenceAssemblies(ReferenceAssemblies.NetStandard.NetStandard20)
             .AddPackages(
-                new PackageIdentity("Microsoft.CodeAnalysis.CSharp.CodeFix.Testing", "1.1.1"),
+                new PackageIdentity("Microsoft.CodeAnalysis.CSharp.CodeFix.Testing", "1.1.2"),
                 new PackageIdentity("Microsoft.CodeAnalysis.CSharp", "4.3.1"),
                 new PackageIdentity("Microsoft.CodeAnalysis.CSharp.Workspaces", "4.3.1")
             );
@@ -47,7 +45,7 @@ public class ExtensionMethodsCodeGeneratorUnitTest : VerifyBase
         const string source = "";
 
         var generated = await BuildTest(source)
-            .AddPackages(MsTestPackage)
+            .AddPackages(TestPackage)
             .RunAsync();
 
         await Verify(generated);
@@ -57,7 +55,7 @@ public class ExtensionMethodsCodeGeneratorUnitTest : VerifyBase
     public async Task TestWithOnlyAnalyzerSourceDoesNotGenerateAnything()
     {
         var generated = await BuildTest(AnalyzerSource)
-            .AddPackages(MsTestPackage)
+            .AddPackages(TestPackage)
             .RunAsync();
 
         await Verify(generated);
@@ -75,7 +73,7 @@ public class ExtensionMethodsCodeGeneratorUnitTest : VerifyBase
         using Microsoft.CodeAnalysis.Diagnostics;
         using Microsoft.CodeAnalysis.Testing;
         
-        using Verifier = Microsoft.CodeAnalysis.Testing.Verifiers.MSTestVerifier;
+        using Verifier = Microsoft.CodeAnalysis.Testing.DefaultVerifier;
         
         public class AnalyzerTest : CSharpAnalyzerTest<MyAnalyzer, Verifier>
         {
@@ -91,7 +89,7 @@ public class ExtensionMethodsCodeGeneratorUnitTest : VerifyBase
         """;
 
         var generated = await BuildTest(AnalyzerSource, testSource)
-            .AddPackages(MsTestPackage)
+            .AddPackages(TestPackage)
             .RunAsync();
 
         await Verify(generated);
@@ -108,19 +106,18 @@ public class ExtensionMethodsCodeGeneratorUnitTest : VerifyBase
         using Microsoft.CodeAnalysis.CSharp.Testing;
         using Microsoft.CodeAnalysis.Diagnostics;
         using Microsoft.CodeAnalysis.Testing;
-        using Microsoft.CodeAnalysis.Testing.Verifiers;
         
         public class Test 
         {
             public async Task AnyTest()
             {
-                await new CSharpAnalyzerTest<MyAnalyzer, XUnitVerifier>().RunAsync();
+                await new CSharpAnalyzerTest<MyAnalyzer, DefaultVerifier>().RunAsync();
             }
         }
         """;
 
         var generated = await BuildTest(AnalyzerSource, testSource)
-            .AddPackages(XUnitPackage)
+            .AddPackages(TestPackage)
             .RunAsync();
 
         await Verify(generated);

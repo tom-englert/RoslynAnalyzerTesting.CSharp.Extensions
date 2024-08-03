@@ -1,4 +1,5 @@
-﻿using Microsoft.CodeAnalysis;
+﻿using System.Collections.Immutable;
+using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.Testing;
 
 namespace AnalyzerTesting.CSharp.Extensions;
@@ -35,14 +36,14 @@ public class CSharpIncrementalGeneratorSnapshotTest<TSourceGenerator, TVerifier>
     }
 
     /// <inheritdoc />
-    protected override async Task<Compilation> GetProjectCompilationAsync(Project project, IVerifier verifier,
+    protected override async Task<(Compilation compilation, ImmutableArray<Diagnostic> generatorDiagnostics)> GetProjectCompilationAsync(Project project, IVerifier verifier,
         CancellationToken cancellationToken)
     {
-        var compilation = await base.GetProjectCompilationAsync(project, verifier, cancellationToken);
+        var (compilation, diagnostics) = await base.GetProjectCompilationAsync(project, verifier, cancellationToken);
 
         _generatedSources = JoinResults(compilation.SyntaxTrees.Skip(project.DocumentIds.Count));
 
-        return compilation;
+        return (compilation, diagnostics);
     }
 
     private static string JoinResults(IEnumerable<SyntaxTree> results)

@@ -1,7 +1,6 @@
 ﻿using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Testing;
 using Microsoft.CodeAnalysis.Testing;
-using Microsoft.CodeAnalysis.Testing.Verifiers;
 
 namespace Sample;
 
@@ -23,7 +22,7 @@ public class Test : VerifyBase
     [TestMethod]
     public async Task WithObjectInitializer()
     {
-        var test = new CSharpAnalyzerTest<SampleAnalyzer, MSTestVerifier>
+        var test = new CSharpAnalyzerTest<SampleAnalyzer, DefaultVerifier>
         {
             TestCode = Source,
             SolutionTransforms =
@@ -45,7 +44,7 @@ public class Test : VerifyBase
     [TestMethod]
     public async Task WithFluentExtensions()
     {
-        var test = new CSharpAnalyzerTest<SampleAnalyzer, MSTestVerifier>()
+        var test = new CSharpAnalyzerTest<SampleAnalyzer, DefaultVerifier>()
             .AddSources(Source)
             .AddReferences(typeof(Abstractions.SampleAttribute).Assembly)
             .AddPackages(SampleNugetPackage)
@@ -57,9 +56,9 @@ public class Test : VerifyBase
         await test.RunAsync();
     }
 
-    private static CSharpAnalyzerTest<SampleAnalyzer, MSTestVerifier> BuildTest(params string[] sources)
+    private static CSharpAnalyzerTest<SampleAnalyzer, DefaultVerifier> BuildTest(params string[] sources)
     {
-        return new CSharpAnalyzerTest<SampleAnalyzer, MSTestVerifier>()
+        return new CSharpAnalyzerTest<SampleAnalyzer, DefaultVerifier>()
             .AddSources(sources)
             .AddReferences(typeof(Abstractions.SampleAttribute).Assembly)
             .AddPackages(SampleNugetPackage)
@@ -76,7 +75,7 @@ public class Test : VerifyBase
             .RunAsync();
     }
 
-    private sealed class CustomTest : CSharpAnalyzerTest<SampleAnalyzer, MSTestVerifier>
+    private sealed class CustomTest : CSharpAnalyzerTest<SampleAnalyzer, DefaultVerifier>
     {
         public CustomTest(string source)
         {
@@ -101,7 +100,7 @@ public class Test : VerifyBase
     {
         var fixedSource = Source.Replace("SampleClass", "SAMPLECLASS", StringComparison.Ordinal);
 
-        var test = new CSharpCodeFixTest<SampleAnalyzer, SampleCodeFixProvider, MSTestVerifier>()
+        var test = new CSharpCodeFixTest<SampleAnalyzer, SampleCodeFixProvider, DefaultVerifier>()
             .AddSources(Source)
             .AddReferences(typeof(Abstractions.SampleAttribute).Assembly)
             .AddPackages(SampleNugetPackage)
@@ -115,7 +114,7 @@ public class Test : VerifyBase
     [TestMethod]
     public async Task CodeGeneratorTest()
     {
-        var test = new CSharpIncrementalGeneratorTest<SampleGenerator, MSTestVerifier>()
+        var test = new CSharpIncrementalGeneratorTest<SampleGenerator, DefaultVerifier>()
         {
             GeneratedSource = ("SampleSource.g.cs", "// This is just a generated sample")
         };
@@ -126,7 +125,7 @@ public class Test : VerifyBase
     [TestMethod]
     public async Task CodeGeneratorSnapshotTest()
     {
-        var test = new CSharpIncrementalGeneratorSnapshotTest<SampleGenerator, MSTestVerifier>
+        var test = new CSharpIncrementalGeneratorSnapshotTest<SampleGenerator, DefaultVerifier>
         {
             TestCode = "namespace Dummy { }"
         };
@@ -140,7 +139,7 @@ public class Test : VerifyBase
     [TestMethod]
     public async Task AnalyzerSuppressorTest()
     {
-        await new CSharpDiagnosticSuppressorTest<SampleAnalyzer, SampleSuppressor, MSTestVerifier>()
+        await new CSharpDiagnosticSuppressorTest<SampleAnalyzer, SampleSuppressor, DefaultVerifier>()
             .AddSources(Source)
             .AddReferences(typeof(Abstractions.SampleAttribute).Assembly)
             .AddPackages(SampleNugetPackage)
@@ -161,7 +160,7 @@ public class Test : VerifyBase
                               }
                               """;
 
-        await new CSharpDiagnosticSuppressorTest<SampleSuppressor, MSTestVerifier>()
+        await new CSharpDiagnosticSuppressorTest<SampleSuppressor, DefaultVerifier>()
             .AddSources(source)
             .WithProjectCompilationOptions(options => options.WithCSharpDefaults())
             .AddExpectedDiagnostics(DiagnosticResult.CompilerError("CS8618").WithLocation(0).WithArguments("field", "x").WithIsSuppressed(true))

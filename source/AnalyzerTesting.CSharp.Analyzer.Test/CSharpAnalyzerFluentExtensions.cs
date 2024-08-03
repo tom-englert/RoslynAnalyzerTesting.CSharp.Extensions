@@ -8,7 +8,7 @@ using Microsoft.CodeAnalysis.Testing;
 
 namespace AnalyzerTesting.CSharp.Analyzer.Test;
 
-using Verifier_4E37C6A9_58E2_466D_B8AB_6ABF3B1D3B80 = global::Microsoft.CodeAnalysis.Testing.Verifiers.MSTestVerifier;
+using Verifier_4E37C6A9_58E2_466D_B8AB_6ABF3B1D3B80 = global::Microsoft.CodeAnalysis.Testing.DefaultVerifier;
 
 internal static class CSharpAnalyzerFluentExtensions
 {

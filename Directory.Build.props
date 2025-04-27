@@ -3,7 +3,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <LangVersion>latest</LangVersion>
-    <Version>1.2.0</Version>
+    <Version>1.2.1</Version>
     <Authors>tom-englert</Authors>
     <Company>tom-englert.de</Company>
     <Title>Roslyn analyzer testing extensions</Title>

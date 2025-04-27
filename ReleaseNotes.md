@@ -1,3 +1,6 @@
+1.2.1
+- Fix #4: warning NU1608: Detected package version outside of dependency constraint
+
 1.2.0
 - Update dependencies, use V 1.1.2 of Microsoft.CodeAnalysis.CSharp.*.Testing
 

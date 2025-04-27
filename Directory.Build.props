@@ -2,7 +2,7 @@
   <PropertyGroup>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <LangVersion>11.0</LangVersion>
+    <LangVersion>latest</LangVersion>
     <Version>1.2.0</Version>
     <Authors>tom-englert</Authors>
     <Company>tom-englert.de</Company>

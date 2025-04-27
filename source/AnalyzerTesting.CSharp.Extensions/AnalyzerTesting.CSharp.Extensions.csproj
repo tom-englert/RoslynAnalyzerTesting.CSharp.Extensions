@@ -16,9 +16,9 @@
   </ItemGroup>
 
   <ItemGroup Label="Transitive Fixes">
-    <PackageReference Include="NuGet.Packaging" Version="6.10.1" />
-    <PackageReference Include="System.Security.Cryptography.Pkcs" Version="8.0.0" />
-    <PackageReference Include="System.Formats.Asn1" Version="8.0.1" />
+    <PackageReference Include="NuGet.Packaging" Version="6.13.2" />
+    <PackageReference Include="System.Security.Cryptography.Pkcs" Version="9.0.4" />
+    <PackageReference Include="System.Formats.Asn1" Version="9.0.4" />
   </ItemGroup>
 
   <ItemGroup>

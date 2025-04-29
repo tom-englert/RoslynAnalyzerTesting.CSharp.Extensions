@@ -10,12 +10,12 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Analyzer.Testing" Version="1.1.2" />
-    <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="[4.3.1]" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="4.3.1" IsPinned="true" Justification="VS backward compatibility" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.13.0" />
     <PackageReference Include="MSTest.TestAdapter" Version="3.8.3" />
     <PackageReference Include="MSTest.TestFramework" Version="3.8.3" />
     <PackageReference Include="MarkdownSnippets.MsBuild" Version="27.0.2" PrivateAssets="All" />
-    <PackageReference Include="Verify.MSTest" Version="29.3.1" />
+    <PackageReference Include="Verify.MSTest" Version="29.4.0" />
   </ItemGroup>
 
   <ItemGroup Label="Transitive Fixes">

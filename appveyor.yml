@@ -1,4 +1,6 @@
 image: Visual Studio 2022
+install:
+- pwsh: Invoke-WebRequest -Uri 'https://dot.net/v1/dotnet-install.ps1' -OutFile 'dotnet-install.ps1'; .\dotnet-install.ps1 -Channel 10.0 -InstallDir "$env:ProgramFiles\dotnet"
 build_script:
 - cmd: dotnet build source/AnalyzerTesting.sln --configuration Release
 artifacts:

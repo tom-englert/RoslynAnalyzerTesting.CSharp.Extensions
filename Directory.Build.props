@@ -3,11 +3,12 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <LangVersion>latest</LangVersion>
-    <Version>1.2.1</Version>
+    <Version>1.2.2</Version>
     <Authors>tom-englert</Authors>
     <Company>tom-englert.de</Company>
     <Title>Roslyn analyzer testing extensions</Title>
     <Description>Instantly start coding roslyn analyzer tests, without having to prepare a new derived class for every test flavor.</Description>
+    <Copyright>Copyright (c) 2023 Tom Englert and contributors</Copyright>
     
     <DebugType>embedded</DebugType>
     <DebugSymbols>true</DebugSymbols>

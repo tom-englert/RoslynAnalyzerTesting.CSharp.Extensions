@@ -9,19 +9,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Analyzer.Testing" Version="1.1.2" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Analyzer.Testing" Version="1.1.4" />
     <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="4.3.1" IsPinned="true" Justification="VS backward compatibility" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.13.0" />
-    <PackageReference Include="MSTest.TestAdapter" Version="3.8.3" />
-    <PackageReference Include="MSTest.TestFramework" Version="3.8.3" />
-    <PackageReference Include="MarkdownSnippets.MsBuild" Version="27.0.2" PrivateAssets="All" />
-    <PackageReference Include="Verify.MSTest" Version="29.4.0" />
-  </ItemGroup>
-
-  <ItemGroup Label="Transitive Fixes">
-    <PackageReference Include="NuGet.Packaging" Version="6.13.2" />
-    <PackageReference Include="System.Security.Cryptography.Pkcs" Version="9.0.4" />
-    <PackageReference Include="System.Formats.Asn1" Version="9.0.4" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.7.0" />
+    <PackageReference Include="MSTest.TestAdapter" Version="4.2.3" />
+    <PackageReference Include="MSTest.TestFramework" Version="4.2.3" />
+    <PackageReference Include="MarkdownSnippets.MsBuild" Version="28.3.1" PrivateAssets="All" />
+    <PackageReference Include="Verify.MSTest" Version="31.20.0" />
   </ItemGroup>
 
   <ItemGroup>
